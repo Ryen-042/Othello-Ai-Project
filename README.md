@@ -7,6 +7,7 @@ There are 2 players and the goal is to have the most disks of your own colour as
 At the start there are 4 disks, 2 for  each player lined up in the center with this pattern:
 
 W B
+
 B W
 
 You can place a disk on the empty field if you have, looking from that position, at least one diagonal, horizontal or vertical line full of your opponents colour up to one of your own.
