@@ -37,3 +37,24 @@ _ W W W W W _ _ W
 
 This concept applies for horizontal, vertical and diagonal directions.
 
+
+
+# How to Play
+
+1. The game is played on an 8x8 board.
+
+2. There are 64 disks, each one colored black on one side and white on the other.
+
+3. At the start of the game, two black and two white pieces are placed in the center of the board, forming a square pattern.
+
+4. Each player takes turns to place a disk of their color on the board.
+
+5. A player can only place a disk on the board if it will result in the capture of at least one of their opponent's disks.
+
+6. A disk is captured if it is surrounded on either side by a line of the opponent's disks, with one of the player's disks at each end of the line.
+
+7. The game ends when the board is full or neither player can make a valid move.
+
+8. The player with the most disks of their color on the board at the end of the game is the winner.
+
+
