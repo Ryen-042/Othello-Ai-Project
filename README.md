@@ -2,12 +2,12 @@
 
 Othello game with GUI, and you can play it against the computer or player vs player.
 
-#The alghorithm
+# The alghorithm
 
 For the development of this project, we use a famouse algorithm for boardgames called Minimax. This algorithm try to find the best move assuming that the oponent also play good.
 
 
-#About the game
+# About the game
 
 There are 2 players and the goal is to have the most disks of your own colour as soon as the opponent is unable to place any more of his colour.
 
