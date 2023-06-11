@@ -103,3 +103,73 @@ def displayGameboardHStyle(screen, gameBoard: GameBoard, icons: GameIcons):
         textRectangleObj = textSurfaceObj.get_rect()
         textRectangleObj.center = textRectangleObj.bottomleft = (gameBoard.diagonalMargin, gameBoard.diagonalMargin + gameBoard.col * gameBoard.squareLength + icons.size * 4 // 3)
         screen.blit(textSurfaceObj, textRectangleObj)
+
+        
+   # Mypart
+def displayGameboardVStyle(screen, gameBoard: GameBoard, icons: GameIcons):
+    """Display the gameboard on the given screen."""
+
+    # Drawing the gameboard background.
+    screen.blit(icons.background, (0, 0))
+
+    extraMargin = 13
+
+    # Drawing the gameboard grid. `+ 1` is for the right and bottom borders.
+    for row in range(gameBoard.row + 1):
+        for col in range(gameBoard.col + 1):
+            draw.line(screen, (0, 0, 0),
+                      (gameBoard.diagonalMargin + row * gameBoard.squareLength, gameBoard.diagonalMargin + extraMargin),
+                      (gameBoard.diagonalMargin + row * gameBoard.squareLength, gameBoard.diagonalMargin + gameBoard.col * gameBoard.squareLength + extraMargin))
+
+            draw.line(screen, (0, 0, 0),
+                      (gameBoard.diagonalMargin, gameBoard.diagonalMargin + col * gameBoard.squareLength + extraMargin),
+                      (gameBoard.diagonalMargin + gameBoard.row * gameBoard.squareLength, gameBoard.diagonalMargin + col * gameBoard.squareLength + extraMargin))
+
+    # Drawing the disks.
+    imageMargin = gameBoard.diagonalMargin + gameBoard.squareLength // 2 - icons.size // 2
+    for row in range(gameBoard.row):
+        for col in range(gameBoard.col):
+            screen.blit(icons.getDiskIconByValue(gameBoard.disks[row][col]), (col * gameBoard.squareLength + imageMargin, row * gameBoard.squareLength + imageMargin + extraMargin))
+
+    BlackIconPosX = gameBoard.diagonalMargin + gameBoard.col * gameBoard.squareLength // 8
+    WhiteIconPosX = gameBoard.diagonalMargin + gameBoard.col * gameBoard.squareLength * 5 // 8
+    PlayerIconPosY = gameBoard.diagonalMargin // 2 - icons.size // 2 + extraMargin // 2
+
+    # Drawing the players icons.
+    if gameBoard.player == 1:
+        screen.blit(icons.blackDisk, (BlackIconPosX, PlayerIconPosY))
+        screen.blit(icons.possibleMoveDisk, (WhiteIconPosX, PlayerIconPosY))
+    else:
+        screen.blit(icons.possibleMoveDisk, (BlackIconPosX, PlayerIconPosY))
+        screen.blit(icons.whiteDisk, (WhiteIconPosX, PlayerIconPosY))
+
+    # Drawing the disk counters of the players.
+    fontObj = font.Font(None, icons.size)
+
+    # The black player.
+    textSurfaceObj = fontObj.render(str(gameBoard.blackCount), True, (0, 0, 0))
+    textRectangleObj = textSurfaceObj.get_rect()
+    textRectangleObj.center = (BlackIconPosX + icons.size * 2, int(PlayerIconPosY + icons.size // 2))
+    screen.blit(textSurfaceObj, textRectangleObj)
+
+    # The white player.
+    textSurfaceObj = fontObj.render(str(gameBoard.whiteCount), True, (0, 0, 0))
+    textRectangleObj = textSurfaceObj.get_rect()
+    textRectangleObj.center = (WhiteIconPosX + icons.size * 2, int(PlayerIconPosY + icons.size // 2))
+    screen.blit(textSurfaceObj, textRectangleObj)
+
+    # Printing Game Over if there is no possible moves for both players.
+    if not gameBoard.possibleMoves:
+        fontObj = font.Font(None, icons.size * 3 // 4)
+
+        msg = "Game Over. " + ("Black wins!" if gameBoard.blackCount > gameBoard.whiteCount else "White wins!" if gameBoard.blackCount < gameBoard.whiteCount else "Tie!")
+        textSurfaceObj = fontObj.render(msg, True, (100, 20, 40))
+        textRectangleObj = textSurfaceObj.get_rect()
+        textRectangleObj.bottomleft = (gameBoard.diagonalMargin, gameBoard.diagonalMargin + gameBoard.col * gameBoard.squareLength + icons.size + extraMargin - 5)
+        screen.blit(textSurfaceObj, textRectangleObj)
+
+        msg = "Press the 'Space' key to start a new game."
+        textSurfaceObj = fontObj.render(msg, True, (0, 0, 0))
+        textRectangleObj = textSurfaceObj.get_rect()
+        textRectangleObj.bottomleft = (gameBoard.diagonalMargin, gameBoard.diagonalMargin + gameBoard.col * gameBoard.squareLength + icons.size * 5 // 3 + extraMargin - 5)
+        screen.blit(textSurfaceObj, textRectangleObj)
