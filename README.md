@@ -1,6 +1,6 @@
 # Othello-Ai-Project
 
-*About the game
+[About the game]
 
 There are 2 players and the goal is to have the most disks of your own colour as soon as the opponent is unable to place any more of his colour.
 
