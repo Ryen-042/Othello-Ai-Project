@@ -4,7 +4,7 @@ Othello game with GUI, and you can play it against the computer or player vs pla
 
 # The alghorithm
 
-For the development of this project, we use a famouse algorithm for boardgames called Minimax. This algorithm try to find the best move assuming that the oponent also play good.
+For the development of this project, we use a famouse algorithm for boardgames called "Minimax". This algorithm try to find the best move assuming that the oponent also play good.
 
 
 # About the game
