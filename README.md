@@ -20,7 +20,7 @@ Example: Here you are W and shown below is an extract of a possible alignment in
 
 _ _ B B B W _ _ W
 
-You can place your tile at the second position, because on the horizontal direction after the 3 Bs a tile of your colour (W) is located at position 6.
+You can place your disk at the second position, because on the horizontal direction after the 3 Bs a disk of your colour (W) is located at position 6.
 
 Following this move, every B in between will change colour
 
